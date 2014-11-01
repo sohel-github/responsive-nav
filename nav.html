@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Drop down Menu</title>
+  </head>
+<body>
+
+	<style>
+		*{margin:0;padding:0;}
+		
+		#container{
+			max-width:1000px;
+			margin:10px auto;
+		}
+		
+		nav ul{
+			list-style:none;
+			background:#eef2d1;
+			padding:15px;
+		}
+		
+		nav ul li{
+			display:inline-block;
+			position:relative;
+		}
+		
+		nav ul li a{
+			text-decoration:none;
+			color:#1f201b;
+			font:15px arial;
+			padding:15px;
+			margin:10px;
+		}
+		
+		nav ul li a:hover{
+			color:#156;
+		}
+		
+		nav ul li ul{
+			display:none;
+		}
+		
+		nav ul li:hover > ul{
+			display:block;
+			position:absolute;
+			line-height:1.9em;
+		}
+		
+		nav ul li ul{
+			border-left: 1px solid #dadada;
+			border-bottom: 1px solid #dadada;
+			border-right: 1px solid #dadada;
+			top:35px;
+			width:150px;
+			z-index:1000;
+		}
+		
+		nav ul li ul li:hover{
+			background:green;
+			display:block;
+		}
+		
+		nav ul li ul li a:hover{
+			color:#fff;
+		}
+		
+		@media (max-width:768px){
+			
+			nav{
+				display:none;
+			}
+			
+			.responsive_menu:before{
+				content:"Menu";
+				background:#eef2d1;
+				text-align:center;
+				padding:15px;
+				font:15px arial;
+				display:block;
+				cursor:pointer;
+			}
+			nav ul li{
+				display:block;
+				line-height:1.9em;
+			}
+			nav ul li ul{
+				border-left: 1px solid #dadada;
+				border-bottom: 1px solid #dadada;
+				border-right: 1px solid #dadada;
+				top:20px;
+				width:150px;
+				z-index:1000;
+			}
+		}
+		
+	</style>
+	
+	<div id="container">
+		<span class="responsive_menu"></span>
+		<nav>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Product</a>
+					<ul>
+						<li><a href="">Shirt</a></li>
+						<li><a href="">Pant</a></li>
+						<li><a href="">Sweiter</a></li>
+						<li><a href="">Underware</a></li>
+						<li><a href="">Hand Glabs</a></li>
+					</ul>
+				</li>
+				<li><a href="">Category</a>
+					<ul>
+						<li><a href="">Mens</a></li>
+						<li><a href="">Womens</a></li>
+						<li><a href="">Kids</a></li>
+						<li><a href="">Old Men</a></li>
+						<li><a href="">Old Women</a></li>
+					</ul>
+				</li>
+				<li><a href="">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+	
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	<span class="responsive_menu"></span>
+	<nav>
+		<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="">About</a></li>
+			<li><a href="">Product</a>
+				<ul>
+					<li><a href="">Shirt</a></li>
+					<li><a href="">Pant</a></li>
+					<li><a href="">Sweiter</a></li>
+					<li><a href="">Underware</a></li>
+					<li><a href="">Hand Glabs</a></li>
+				</ul>
+			</li>
+			<li><a href="">Category</a>
+				<ul>
+					<li><a href="">Mens</a></li>
+					<li><a href="">Womens</a></li>
+					<li><a href="">Kids</a></li>
+					<li><a href="">Old Men</a></li>
+					<li><a href="">Old Women</a></li>
+				</ul>
+			</li>
+			<li><a href="">Contact</a></li>
+		</ul>
+	</nav>
+	
+	
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.responsive_menu').click(function(){
+				$('nav').slideToggle();
+			});
+			
+			$(window).width().resize(function(){
+				if($(window).width() > 768){
+					$('nav').removeAttr('style');
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
